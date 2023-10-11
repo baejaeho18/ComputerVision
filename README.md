@@ -20,6 +20,7 @@ how computers can understand digital images or videos just like automate tasks t
 ## Basics of Digital Image/Video
 * Pixel : smallest unit
 <img width="564" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/918bcc11-6319-4bef-bbc0-1c8eede4d0a4">
+
 * FPS : the number of images(frames) of a video per second
   - the interval is normally 33ms (*30fps=1000ms=1s)
   - FPS가 클수록, interval이 낮을 수록 자연스러움
@@ -27,6 +28,7 @@ how computers can understand digital images or videos just like automate tasks t
   - Normally, 256($2^8$)
   - Intensity가 클수록 정교하게 표현할 수 있음
   <img width="294" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/931569e8-1544-441f-8050-cb0e8d314cda">
+  
 * Pixel Resolution : 해상도. 이미지가 가진 픽셀의 개수
   - Total Number of bits to store a digital image = the number of rows(height) * the number of columns(width) * the number of bits for one pixel(intensity level)
 
