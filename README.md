@@ -1,5 +1,5 @@
 # ComputerVision
-how computers can understand digital images or videos just like automate tasks that human vision system can do[[blog]](https://hu-coding.tistory.com/category/Computer%20Vision)
+how computers can understand digital images or videos just like automate tasks that human vision system can do [[blog]](https://hu-coding.tistory.com/category/Computer%20Vision)
 
 * Preprocessing : 이미지 크기 조정, 색상 보정, 노이즈 제거 등
 * Edge Extraction/Line Detection
