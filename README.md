@@ -33,6 +33,7 @@ how computers can understand digital images or videos just like automate tasks t
   - Total Number of bits to store a digital image = the number of rows(height) * the number of columns(width) * the number of bits for one pixel(intensity level)
 
 
+
 ## Intensity Transformation
 ### Negative Transformation
 ### Gamma Transformation
