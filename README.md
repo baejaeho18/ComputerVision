@@ -18,22 +18,66 @@ how computers can understand digital images or videos just like automate tasks t
 실시간 처리 능력을 강조한 Model-centric 개발이 우선되었으나, 최근에는 실시간성뿐만 아니라 학습 데이터 품질 향상을 통한 정확성 증진도 활발히 연구되고 있음. 또한, 기존의 CNN[[video]](https://www.youtube.com/watch?v=ixF5WNpTzCA)뿐만 아니라, 전체 시퀀스의 정보를 한번에 처리할 수 있는 "Attention Mechanism"이 도입된 Transformers가 주목받고 있음.
 
 ## Basics of Digital Image/Video
-* Pixel : smallest unit
+* Pixel : smallest unit of Image (1~4 values)
 <img width="564" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/918bcc11-6319-4bef-bbc0-1c8eede4d0a4">
 
-* FPS : the number of images(frames) of a video per second
-  - the interval is normally 33ms (*30fps=1000ms=1s)
-  - FPS가 클수록, interval이 낮을 수록 자연스러움
-* Intensity Level : 각각의 픽셀이 가질 수 있는 표현의 개수. 2의 지수승으로 존재
+* Intensity Level : 각각의 <b>pixel<B>이 가질 수 있는 표현의 개수. 2의 지수승으로 존재
   - Normally, 256($2^8$)
   - Intensity가 클수록 정교하게 표현할 수 있음
   <img width="294" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/931569e8-1544-441f-8050-cb0e8d314cda">
   
-* Pixel Resolution : 해상도. 이미지가 가진 픽셀의 개수
+* Pixel Resolution : 해상도. <b>image<b>가 가진 픽셀의 개수
   - Total Number of bits to store a digital image = the number of rows(height) * the number of columns(width) * the number of bits for one pixel(intensity level)
 
+* FPS : the number of images(frames) of a <b>video<b> per second
+  - the interval is normally 33ms (*30fps=1000ms=1s)
+  - FPS가 클수록, interval이 낮을 수록 자연스러움
 
+# Intensity Transformation
+Way to enhance the image
 
-## Intensity Transformation
-### Negative Transformation
-### Gamma Transformation
+Using Mapping function, ~~
+* Negative Transformation
+* Log Transformation : enhance contrast of dark region
+* Gamma Transformation : gamma < 1
+
+thresholding
+
+# Filtering
+## Histogram Filtering
+Depending on the number of bins, the result would change dramatically.
+
+Normalized Histogram (PDF) - can calculate the probability of pixel value
+## Histogram Equlization
+low contrast image vs high contrast image
+
+intensity transformation + histogram filtering?
+
+In the Moon.png, 
+## Spatial Filtering
+1 Define the kernel size (3,3), (5,5), ...
+2 Scan with masking
+* Average Filtering : blur, smoothing, nosie ?
+* Gausian Filtering
+* Second Derivative - Laplacia? : sharpening
+* Unsharp Masking : sharpening
+* Median Filtering : remove noise without blurry but need more computation
+
+# Color Image Enhancement
+How to enhance color image
+## Color Space
+* RGB
+* HSI
+* YUV
+
+accromatic color 무채색?
+## Color Conversion
+## Color Slicing
+* Hue Channel
+* X Channel?
+## White balancing
+## Gray World Assumption
+
+# Edge/Line Detection
+# Segmentation
+
