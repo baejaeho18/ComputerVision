@@ -34,8 +34,7 @@ how computers can understand digital images or videos just like automate tasks t
   - FPS가 클수록, interval이 낮을 수록 자연스러움
 
 # Intensity Transformation
-Way to enhance the image
-
+Way to enhance the image <br>
 Using Mapping function, ~~
 * Negative Transformation
 * Log Transformation : enhance contrast of dark region
@@ -45,14 +44,11 @@ thresholding
 
 # Filtering
 ## Histogram Filtering
-Depending on the number of bins, the result would change dramatically.
-
+Depending on the number of bins, the result would change dramatically. <br>
 Normalized Histogram (PDF) - can calculate the probability of pixel value
 ## Histogram Equlization
-low contrast image vs high contrast image
-
-intensity transformation + histogram filtering?
-
+low contrast image vs high contrast image <br>
+intensity transformation + histogram filtering? <br>
 In the Moon.png, 
 ## Spatial Filtering
 1 Define the kernel size (3,3), (5,5), ...
@@ -69,7 +65,6 @@ How to enhance color image
 * RGB
 * HSI
 * YUV
-
 accromatic color 무채색?
 ## Color Conversion
 ## Color Slicing
@@ -79,5 +74,17 @@ accromatic color 무채색?
 ## Gray World Assumption
 
 # Edge/Line Detection
-# Segmentation
+Edge pixel : a lot of intensity difference
+* Sobel Mask
+* Canny : 1 blur 2 sobel to calculate gradient 3 non maxima suppresion 4 double thresholding 5 connectivity analysis
 
+# Image Segmentation
+1 back / forward
+2 thresholding : how to defined threshoding is very important job
+- gobal : Basing, Ostant? : performance measurement : within-class variance / between-class variance
+- local : average adjacent pixel
+
+# Video Segmentation (Background Subtraction)
+1 background
+- GMM : p(B|A) and p(A|B) => p(X|background) and p(Background|X) : the form of ML
+2 How to subtract
