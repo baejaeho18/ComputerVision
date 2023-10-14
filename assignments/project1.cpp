@@ -5,15 +5,13 @@ using namespace std;
 using namespace cv;
 
 Mat negativeTransformation(Mat img) {
-    Mat result = img.clone();
     for (int j = 0; j < img.rows; j++)
         for (int i = 0; i < img.cols*3; i++)
-            result.at<uchar>(j, i) = 255 - img.at<uchar>(j, i);
-    return result;
+            img.at<uchar>(j, i) = 255 - img.at<uchar>(j, i);
+    return img;
 }
 
-Mat gammaTransformation(Mat img, float gamma) {
-    Mat result = img.clone();
+Mat gammaTransformation(Mat img, float gamma) {\
     MatIterator_<uchar> it, end;
     unsigned char pix[256];
 
@@ -22,39 +20,37 @@ Mat gammaTransformation(Mat img, float gamma) {
     }
     for (int j = 0; j < img.rows; j++)
         for (int i = 0; i < img.cols*3; i++)
-            result.at<uchar>(j, i) = pix[result.at<uchar>(j, i)];
+            img.at<uchar>(j, i) = pix[img.at<uchar>(j, i)];
 
-    return result;
+    return img;
 }
 
 Mat histogramEqualization(Mat img) {
-    Mat result = img.clone();
     vector<Mat> ic(3);
     cvtColor(img, img, CV_BGR2HSV);
     split(img, ic);
     equalizeHist(ic[2], ic[2]);
-    merge(ic, result);
-    cvtColor(result, result, CV_HSV2BGR);
-    return result;
+    merge(ic, img);
+    cvtColor(img, img, CV_HSV2BGR);
+    return img;
 }
 
 Mat colorSlicing(Mat img) {
-    Mat result = img.clone();
     vector<Mat> cs(3);  // color slicing
     uchar* h;
     uchar* s;
 
-    cvtColor(result, result, CV_BGR2HSV);
+    cvtColor(img, img, CV_BGR2HSV);
     split(img, cs);
-    for (int i = 0; i < result.rows; i++) {
+    for (int i = 0; i < img.rows; i++) {
         h = cs[0].ptr<uchar>(i);
         s = cs[1].ptr<uchar>(i);
-        for (int j = 0; j < result.cols; j++) 
-            s[j] = (h[j] < 9 || h[j] > 23) ? s[j] : 0;
+        for (int j = 0; j < img.cols; j++)
+            s[j] = (9 < h[j] && h[j] < 23) ? s[j] : 0;
     }
-    merge(cs, result);
-    cvtColor(result, result, CV_HSV2BGR);
-    return result;
+    merge(cs, img);
+    cvtColor(img, img, CV_HSV2BGR);
+    return img;
 }
 
 Mat colorConversion(Mat img) {
@@ -74,17 +70,15 @@ Mat colorConversion(Mat img) {
 }
 
 Mat averageFiltering(Mat img) {
-    Mat result;
     cvtColor(img, img, CV_BGR2HSV);
-    blur(img, result, Size(9, 9));
-    cvtColor(result, result, CV_HSV2BGR);
-    return result;
+    blur(img, img, Size(9, 9));
+    cvtColor(img, img, CV_HSV2BGR);
+    return img;
 }
 
 Mat unsharpMasking(Mat img) {
-    Mat result;
     Mat unsharp = img - averageFiltering(img);
-    result = img + 2 * unsharp;
+    img = img + 2 * unsharp;
     return img;
 }
 
@@ -153,7 +147,7 @@ int main()
         case 'h':   // good
             cvtFrame = histogramEqualization(frame);
             break;
-        case 's':   // not so white
+        case 's':   // good
             cvtFrame = colorSlicing(frame);
             break;
         case 'c':   // good
