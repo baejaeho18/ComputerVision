@@ -8,8 +8,8 @@ Mat negativeTransformation(Mat img) {
     Mat result = img.clone();
     for (int j = 0; j < img.rows; j++)
         for (int i = 0; i < img.cols*3; i++)
-            img.at<uchar>(j, i) = 255 - img.at<uchar>(j, i);
-    return img;
+            result.at<uchar>(j, i) = 255 - img.at<uchar>(j, i);
+    return result;
 }
 
 Mat gammaTransformation(Mat img, float gamma) {
@@ -58,19 +58,19 @@ Mat colorSlicing(Mat img) {
 }
 
 Mat colorConversion(Mat img) {
-    Mat result = img.clone();
     vector<Mat> cc(3); // color conversion
     uchar* h;
 
-    cvtColor(result, result, CV_BGR2HSV);
-    for (int i = 0; i < result.rows; i++) {
+    cvtColor(img, img, CV_BGR2HSV);
+    split(img, cc);
+    for (int i = 0; i < img.rows; i++) {
         h = cc[0].ptr<uchar>(i);
-        for (int j = 0; j < result.cols; j++) 
+        for (int j = 0; j < img.cols; j++) 
             h[j] = (h[j] > 129) ? h[j] - 129 : h[j] + 50;
     }
-    merge(cc, result);
-    cvtColor(result, result, CV_HSV2BGR);
-    return result;
+    merge(cc, img);
+    cvtColor(img, img, CV_HSV2BGR);
+    return img;
 }
 
 Mat averageFiltering(Mat img) {
@@ -84,7 +84,7 @@ Mat averageFiltering(Mat img) {
 Mat unsharpMasking(Mat img) {
     Mat result;
     Mat unsharp = img - averageFiltering(img);
-    result = img + 3 * unsharp;
+    result = img + 2 * unsharp;
     return img;
 }
 
@@ -156,7 +156,7 @@ int main()
         case 's':   // not so white
             cvtFrame = colorSlicing(frame);
             break;
-        case 'c':   // not work
+        case 'c':   // good
             cvtFrame = colorConversion(frame);
             break;
         case 'a':   // good
