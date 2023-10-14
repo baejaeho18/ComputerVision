@@ -9,8 +9,6 @@ Mat negativeTransformation(Mat img) {
     for (int j = 0; j < img.rows; j++)
         for (int i = 0; i < img.cols*3; i++)
             img.at<uchar>(j, i) = 255 - img.at<uchar>(j, i);
-    //imshow("image", img);
-    //imshow("result", result);
     return img;
 }
 
@@ -30,13 +28,13 @@ Mat gammaTransformation(Mat img, float gamma) {
 }
 
 Mat histogramEqualization(Mat img) {
-    Mat result;
+    Mat result = img.clone();
     vector<Mat> ic(3);
-    cvtColor(img, img, CV_BGR2GRAY);
+    cvtColor(img, img, CV_BGR2HSV);
     split(img, ic);
     equalizeHist(ic[2], ic[2]);
     merge(ic, result);
-    cvtColor(result, result, CV_GRAY2BGR);
+    cvtColor(result, result, CV_HSV2BGR);
     return result;
 }
 
@@ -152,7 +150,7 @@ int main()
         case 'g':   // good
             cvtFrame = gammaTransformation(frame, 2.5);
             break;
-        case 'h':   // not work
+        case 'h':   // good
             cvtFrame = histogramEqualization(frame);
             break;
         case 's':   // not so white
