@@ -25,8 +25,7 @@ Mat negativeTransformation(Mat img) {
     return img;
 }
 
-Mat gammaTransformation(Mat img, float gamma) {\
-    MatIterator_<uchar> it, end;
+Mat gammaTransformation(Mat img, float gamma) {
     unsigned char pix[256];
 
     for (int i = 0; i < 256; i++) {
@@ -40,7 +39,7 @@ Mat gammaTransformation(Mat img, float gamma) {\
 }
 
 Mat histogramEqualization(Mat img) {
-    vector<Mat> he(3);
+    vector<Mat> he(3);  // histogramEqualization
     cvtColor(img, img, CV_BGR2HSV);
     split(img, he);
     equalizeHist(he[2], he[2]);
@@ -84,14 +83,15 @@ Mat colorConversion(Mat img) {
 }
 
 Mat averageFiltering(Mat img) {
-    blur(img, img, Size(9, 9));
-    return img;
+    Mat result;
+    blur(img, result, Size(9, 9));
+    return result;
 }
 
 Mat unsharpMasking(Mat img) {
-    Mat result = img.clone();
-    Mat unsharp = img - averageFiltering(img);
-    result = img + 4 * unsharp;
+    Mat result, unsharp;  
+    unsharp = img - averageFiltering(img);
+    result = img + 2 * unsharp;
     return result;
 }
 
@@ -169,7 +169,7 @@ int main()
         case 'a':   // good
             cvtFrame = averageFiltering(frame);
             break;
-        case 'u':   // same as 'a'
+        case 'u':   // good
             cvtFrame = unsharpMasking(frame);
             break;
         case 'w':   // good
