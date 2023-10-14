@@ -4,9 +4,23 @@
 using namespace std;
 using namespace cv;
 
+//Mat negativeTransformation(Mat img) {
+//    vector<Mat> nt(3);
+//    uchar* h;
+//
+//    cvtColor(img, img, CV_BGR2HSV);
+//    split(img, nt);
+//    for (int i = 0; i < img.rows; i++) {
+//        h = nt[2].ptr<uchar>(i);
+//        for (int j = 0; j < img.cols; j++)
+//            h[j] = 255 - h[j];
+//    }
+//    merge(nt, img);
+//    return img;
+//}
 Mat negativeTransformation(Mat img) {
     for (int j = 0; j < img.rows; j++)
-        for (int i = 0; i < img.cols*3; i++)
+        for (int i = 0; i < img.cols * 3; i++)
             img.at<uchar>(j, i) = 255 - img.at<uchar>(j, i);
     return img;
 }
@@ -26,11 +40,11 @@ Mat gammaTransformation(Mat img, float gamma) {\
 }
 
 Mat histogramEqualization(Mat img) {
-    vector<Mat> ic(3);
+    vector<Mat> he(3);
     cvtColor(img, img, CV_BGR2HSV);
-    split(img, ic);
-    equalizeHist(ic[2], ic[2]);
-    merge(ic, img);
+    split(img, he);
+    equalizeHist(he[2], he[2]);
+    merge(he, img);
     cvtColor(img, img, CV_HSV2BGR);
     return img;
 }
@@ -70,16 +84,15 @@ Mat colorConversion(Mat img) {
 }
 
 Mat averageFiltering(Mat img) {
-    cvtColor(img, img, CV_BGR2HSV);
     blur(img, img, Size(9, 9));
-    cvtColor(img, img, CV_HSV2BGR);
     return img;
 }
 
 Mat unsharpMasking(Mat img) {
+    Mat result = img.clone();
     Mat unsharp = img - averageFiltering(img);
-    img = img + 2 * unsharp;
-    return img;
+    result = img + 4 * unsharp;
+    return result;
 }
 
 Mat whiteBalancing(Mat img) {
@@ -156,7 +169,7 @@ int main()
         case 'a':   // good
             cvtFrame = averageFiltering(frame);
             break;
-        case 'u':   // so highlighted
+        case 'u':   // same as 'a'
             cvtFrame = unsharpMasking(frame);
             break;
         case 'w':   // good
