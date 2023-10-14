@@ -5,6 +5,7 @@ using namespace std;
 using namespace cv;
 
 Mat negativeTransformationHSV(Mat img) {
+    Mat result;
     vector<Mat> nt(3);
     uchar* h;
 
@@ -16,42 +17,46 @@ Mat negativeTransformationHSV(Mat img) {
             h[j] = 255 - h[j];
     }
     merge(nt, img);
-    cvtColor(img, img, CV_HSV2BGR);
-    return img;
+    cvtColor(img, result, CV_HSV2BGR);
+    return result;
 }
 
 Mat negativeTransformationRGB(Mat img) {
+    Mat result;
     for (int j = 0; j < img.rows; j++)
         for (int i = 0; i < img.cols * 3; i++)
-            img.at<uchar>(j, i) = 255 - img.at<uchar>(j, i);
-    return img;
+            result.at<uchar>(j, i) = 255 - img.at<uchar>(j, i);
+    return result;
 }
 
 Mat gammaTransformation(Mat img, float gamma) {
+    Mat result = img.clone();
     unsigned char pix[256];
 
     for (int i = 0; i < 256; i++) {
         pix[i] = saturate_cast<uchar>(pow((float)(i / 255.0), gamma) * 255.0f);
     }
+
     for (int j = 0; j < img.rows; j++)
         for (int i = 0; i < img.cols * 3; i++)
-            img.at<uchar>(j, i) = pix[img.at<uchar>(j, i)];
+            result.at<uchar>(j, i) = pix[img.at<uchar>(j, i)];
 
-    return img;
+    return result;
 }
 
 Mat histogramEqualization(Mat img) {
+    Mat result;
     vector<Mat> he(3);  // histogramEqualization
     cvtColor(img, img, CV_BGR2HSV);
     split(img, he);
     equalizeHist(he[2], he[2]);
     merge(he, img);
-    cvtColor(img, img, CV_HSV2BGR);
-    return img;
+    cvtColor(img, result, CV_HSV2BGR);
+    return result;
 }
 
 Mat colorSlicing(Mat img) {
-    vector<Mat> cs(3);  // color slicing
+    Mat result;    vector<Mat> cs(3);  // color slicing
     uchar* h;
     uchar* s;
 
@@ -64,11 +69,12 @@ Mat colorSlicing(Mat img) {
             s[j] = (9 < h[j] && h[j] < 23) ? s[j] : 0;
     }
     merge(cs, img);
-    cvtColor(img, img, CV_HSV2BGR);
-    return img;
+    cvtColor(img, result, CV_HSV2BGR);
+    return result;
 }
 
 Mat colorConversion(Mat img) {
+    Mat result;
     vector<Mat> cc(3); // color conversion
     uchar* h;
 
@@ -80,8 +86,8 @@ Mat colorConversion(Mat img) {
             h[j] = (h[j] > 129) ? h[j] - 129 : h[j] + 50;
     }
     merge(cc, img);
-    cvtColor(img, img, CV_HSV2BGR);
-    return img;
+    cvtColor(img, result, CV_HSV2BGR);
+    return result;
 }
 
 Mat averageFiltering(Mat img) {
@@ -100,6 +106,7 @@ Mat unsharpMasking(Mat img) {
 Mat whiteBalancing(Mat img) {
     int sum, temp;
     double avg;
+    Mat result;
     Mat bgr_channels[3];
     split(img, bgr_channels);
 
@@ -119,8 +126,8 @@ Mat whiteBalancing(Mat img) {
             }
         }
     }
-    merge(bgr_channels, 3, img);
-    return img;
+    merge(bgr_channels, 3, result);
+    return result;
 }
 
 Mat resetFrame(Mat img) {
@@ -197,7 +204,10 @@ int main()
         else if (key != -1) {
             beforeSteadyKey = steadyKey;
             steadyKey = key;
+            // if checking the n, g, h, s, c, a, u, w, r to change steadyKey,
+            // beforeSteadyKey and all lines of 'Mat result = img.clone()' except for 'u' and 'w' doesn't needed
         }
     }
-    waitKey(0);
+    cout << "ESC" << endl;
+    //waitKey(0);
 }
