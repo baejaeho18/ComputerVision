@@ -4,21 +4,23 @@
 using namespace std;
 using namespace cv;
 
-//Mat negativeTransformation(Mat img) {
-//    vector<Mat> nt(3);
-//    uchar* h;
-//
-//    cvtColor(img, img, CV_BGR2HSV);
-//    split(img, nt);
-//    for (int i = 0; i < img.rows; i++) {
-//        h = nt[2].ptr<uchar>(i);
-//        for (int j = 0; j < img.cols; j++)
-//            h[j] = 255 - h[j];
-//    }
-//    merge(nt, img);
-//    return img;
-//}
-Mat negativeTransformation(Mat img) {
+Mat negativeTransformationHSV(Mat img) {
+    vector<Mat> nt(3);
+    uchar* h;
+
+    cvtColor(img, img, CV_BGR2HSV);
+    split(img, nt);
+    for (int i = 0; i < img.rows; i++) {
+        h = nt[2].ptr<uchar>(i);
+        for (int j = 0; j < img.cols; j++)
+            h[j] = 255 - h[j];
+    }
+    merge(nt, img);
+    cvtColor(img, img, CV_HSV2BGR);
+    return img;
+}
+
+Mat negativeTransformationRGB(Mat img) {
     for (int j = 0; j < img.rows; j++)
         for (int i = 0; i < img.cols * 3; i++)
             img.at<uchar>(j, i) = 255 - img.at<uchar>(j, i);
@@ -32,7 +34,7 @@ Mat gammaTransformation(Mat img, float gamma) {
         pix[i] = saturate_cast<uchar>(pow((float)(i / 255.0), gamma) * 255.0f);
     }
     for (int j = 0; j < img.rows; j++)
-        for (int i = 0; i < img.cols*3; i++)
+        for (int i = 0; i < img.cols * 3; i++)
             img.at<uchar>(j, i) = pix[img.at<uchar>(j, i)];
 
     return img;
@@ -152,7 +154,7 @@ int main()
 
         switch (steadyKey) {
         case 'n':   // good?
-            cvtFrame = negativeTransformation(frame);
+            cvtFrame = negativeTransformationHSV(frame);
             break;
         case 'g':   // good
             cvtFrame = gammaTransformation(frame, 2.5);
