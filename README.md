@@ -19,28 +19,40 @@ how computers can understand digital images or videos just like automate tasks t
 
 ## Basics of Digital Image/Video
 * Pixel : smallest unit of Image (1~4 values)
-<img width="564" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/918bcc11-6319-4bef-bbc0-1c8eede4d0a4">
+<img width="400" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/918bcc11-6319-4bef-bbc0-1c8eede4d0a4">
 
-* Intensity Level : 각각의 <b>pixel<B>이 가질 수 있는 표현의 개수. 2의 지수승으로 존재
-  - Normally, 256($2^8$)
+* Intensity Level : 각각의 pixel이 가질 수 있는 표현의 개수. 2의 지수승으로 존재
+  - Normally, 256( $2^8$ )
   - Intensity가 클수록 정교하게 표현할 수 있음
-  <img width="294" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/931569e8-1544-441f-8050-cb0e8d314cda">
+  <img width="300" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/931569e8-1544-441f-8050-cb0e8d314cda">
   
-* Pixel Resolution : 해상도. <b>image<b>가 가진 픽셀의 개수
+* Pixel Resolution : 해상도. image가 가진 픽셀의 개수
   - Total Number of bits to store a digital image = the number of rows(height) * the number of columns(width) * the number of bits for one pixel(intensity level)
+  - 640x360이 기본 : VGA(1,1.5) - HD(2,2) - FHD(3,3) - QHD(4,4) - UHD(6,6)
 
-* FPS : the number of images(frames) of a <b>video<b> per second
+* FPS : the number of images(frames) of a video per second
   - the interval is normally 33ms (*30fps=1000ms=1s)
   - FPS가 클수록, interval이 낮을 수록 자연스러움
 
 # Intensity Transformation
-Way to enhance the image <br>
-Using Mapping function, ~~
-* Negative Transformation
-* Log Transformation : enhance contrast of dark region
-* Gamma Transformation : gamma < 1
+<img width="300" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/3cf2a450-a6f0-4dad-81a0-74570b9b5203">
 
-thresholding
+Way to enhance the image, using Mapping function:
+* Negative Transformation : $input+output = max_intensity$
+* Log Transformation : $output = c*log(input+1) $
+  - enhance contrast of dark region
+<img width="300" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/e8e399bc-4e6d-43a7-9933-f62b18a54c75">
+
+* Gamma(power-law) Correction : $output = c*input^r$
+  - gamma < 1 : enhance the contrast of dark region
+  - gamma = 1 : identity
+  - gamma > 1 : enhance the contrast of bright region
+<img width="300" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/01123ec0-1594-4f3f-932e-0968527b34ea">
+
+* Piecewise-linear Transformation : more complex
+  - Thresholding is also possible
+<img width="150" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/058eafc7-f6d3-46ba-b9c8-effee883f3a9">
+
 
 # Filtering
 ## Histogram Filtering
