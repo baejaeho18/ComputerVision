@@ -117,9 +117,27 @@ Intsity transformation, histogram equalization, spatial filtering are applied on
   - Gray World Assumption : the average of all the colors is a neutral gray : $result = original*(128/average)$
 
 # Edge/Line Detection
-Edge pixel : a lot of intensity difference
+Edge : a lot of intensity difference / Image smoothing for noise reduction should be performed(like, mediean/average filtering)
 * Sobel Mask
-* Canny : 1 blur 2 sobel to calculate gradient 3 non maxima suppresion 4 double thresholding 5 connectivity analysis
+  <img width="200" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/9c28f1db-d32c-40fe-9548-f12d59c4e4bb">
+
+  <img width="200" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/6e60cece-c8d0-4edf-911f-96bfc30e1088">
+
+* Canny
+  - smooothing : remove noise
+  - sobel to calculate gradient : angle and derviative
+  - non maxima suppresion : choose only the maximun
+  - double thresholding & connectivity analysis : determine whether is edge or not
+
+Line
+* Hough Transform
+  - obtain a binary edge image
+  - specify subdivision in the plane
+  - examine the ocunts of the accumulator cells for hight pixel concentrations
+
+same as circle detection
+
+
 
 # Image Segmentation
 1 back / forward
