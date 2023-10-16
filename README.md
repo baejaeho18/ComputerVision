@@ -37,7 +37,8 @@ how computers can understand digital images or videos just like automate tasks t
 # Intensity Transformation
 <img width="300" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/3cf2a450-a6f0-4dad-81a0-74570b9b5203">
 
-Way to enhance the image, using Mapping function:
+Way to enhance the image, using:
+## Mapping function
 * Negative Transformation : $input+output = max_intensity$
 * Log Transformation : $output = c*log(input+1) $
   - enhance contrast of dark region
@@ -53,9 +54,8 @@ Way to enhance the image, using Mapping function:
   - Thresholding is also possible
 <img width="150" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/058eafc7-f6d3-46ba-b9c8-effee883f3a9">
 
-
-# Filtering
-## Spatial Filtering
+## Filtering
+### Spatial Filtering
 Spatial filters : spatial masks, kernels, templates, windows..
 
 1) Define the kernel size (3,3), (5,5), ...
@@ -81,27 +81,40 @@ Spatial filters : spatial masks, kernels, templates, windows..
   - remove noise without blurry but need more computation
   - effective at impulse(sale-and-pepper noise)
 
-## Histogram Equalizationi
+### Histogram Equalizationi
 Depending on the number of bins, contrast of an image adujsted.
  - Contranst : The difference in brig;htness or color that makes an object distinguishable
 
 CDF(Cumulative Distribution Function) : calculate the probability of pixel value
 <img width="1170" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/853f8077-6b5b-4cec-8be9-7751c7f0ff1f">
 
-
 # Color Image Enhancement
 How to enhance color image
-## Color Space
+## Color Model
 * RGB
-* HSI
-* YUV
-accromatic color 무채색?
-## Color Conversion
-## Color Slicing
-* Hue Channel
-* X Channel?
-## White balancing
-## Gray World Assumption
+  
+  <img width="300" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/0e74e179-2f7b-4534-ab30-f561a7544045">
+
+* HSI : Hue(색상:0~360°), Saturation(Clear), Intensity(Brightness)
+
+  <img width="500" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/66310254-c65c-4977-ba86-c0f9d99277dd">
+
+* YUV(YCbCr) : Y(Luma:Brightness), Chroma Blue(Blue - Y), Chroma Red(Red - Y)
+
+  <img width="300" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/ca862625-c5bd-4578-a93d-3b8c39f043df">
+
+- Grayscale image : lightness is the only parameter of a pixel that can vary
+- Achromatic Color : gray, black, white
+
+## Color Processing
+Intsity transformation, histogram equalization, spatial filtering are applied on the intensity channel only!
+* Color Conversion : CV_BGR2HSV, CV_BGR2GRAY
+
+  It means, converting color space into HSI or YUV from RGB is useful. 
+*  Pseudo Coloring : gray image to color image
+* Color Slicing : Find the pixels in the range of the desired color in the Hue-channel. Set all the other pixels to 0 in the Saturation-channel (grayscale image)
+* White balancing : global adjustment of the intensities of the colors
+  - Gray World Assumption : the average of all the colors is a neutral gray : $result = original*(128/average)$
 
 # Edge/Line Detection
 Edge pixel : a lot of intensity difference
