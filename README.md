@@ -19,12 +19,12 @@ how computers can understand digital images or videos just like automate tasks t
 
 ## Basics of Digital Image/Video
 * Pixel : smallest unit of Image (1~4 values)
-  <img width="400" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/918bcc11-6319-4bef-bbc0-1c8eede4d0a4">
+<img width="400" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/918bcc11-6319-4bef-bbc0-1c8eede4d0a4">
 
 * Intensity Level : 각각의 pixel이 가질 수 있는 표현의 개수. 2의 지수승으로 존재
   - Normally, 256( $2^8$ )
   - Intensity가 클수록 정교하게 표현할 수 있음
-  <img width="300" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/931569e8-1544-441f-8050-cb0e8d314cda">
+<img width="300" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/931569e8-1544-441f-8050-cb0e8d314cda">
   
 * Pixel Resolution : 해상도. image가 가진 픽셀의 개수
   - Total Number of bits to store a digital image = the number of rows(height) * the number of columns(width) * the number of bits for one pixel(intensity level)
@@ -41,17 +41,17 @@ Way to enhance the image, using Mapping function:
 * Negative Transformation : $input+output = max_intensity$
 * Log Transformation : $output = c*log(input+1) $
   - enhance contrast of dark region
-  <img width="300" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/e8e399bc-4e6d-43a7-9933-f62b18a54c75">
+<img width="300" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/e8e399bc-4e6d-43a7-9933-f62b18a54c75">
 
 * Gamma(power-law) Correction : $output = c*input^r$
   - gamma < 1 : enhance the contrast of dark region
   - gamma = 1 : identity
   - gamma > 1 : enhance the contrast of bright region
-  <img width="300" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/01123ec0-1594-4f3f-932e-0968527b34ea">
+<img width="300" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/01123ec0-1594-4f3f-932e-0968527b34ea">
 
 * Piecewise-linear Transformation : more complex
   - Thresholding is also possible
-  <img width="150" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/058eafc7-f6d3-46ba-b9c8-effee883f3a9">
+<img width="150" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/058eafc7-f6d3-46ba-b9c8-effee883f3a9">
 
 
 # Filtering
@@ -66,14 +66,15 @@ Spatial filters : spatial masks, kernels, templates, windows..
 * Gausian Filtering : set weight to neighborhood
   - Discretiezed Gaussian Kernel
   - Floating-point Gaussian kernel
-    <img width="300" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/f55c5d8a-cc1d-4e33-98d1-4acff194e97c">
+ <img width="300" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/f55c5d8a-cc1d-4e33-98d1-4acff194e97c">
 
 * sharpening : highlight transitions in intensity
   - Second Derivative : f'' = f(x+1)+f(x-1)-2f(x)
-    <img width="200" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/67714d10-96ce-41ba-b695-6534f32296c5">
-    Sum = Laplacian
+        Sum = Laplacian
+<img width="200" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/67714d10-96ce-41ba-b695-6534f32296c5">
+
   - Unsharp Masking
-    <img width="300" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/09532796-2b7f-4daf-9e57-3d57f08b47fd">
+<img width="300" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/09532796-2b7f-4daf-9e57-3d57f08b47fd">
 
 * Median Filtering : replace the value with the median value of a mask (3x3 -> 5th largest)
   - remove noise without blurry but need more computation
@@ -84,7 +85,7 @@ Depending on the number of bins, contrast of an image adujsted.
  - Contranst : The difference in brig;htness or color that makes an object distinguishable
 
 CDF(Cumulative Distribution Function) : calculate the probability of pixel value
-<img width="700" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/9f6853ee-da71-4742-b7bb-d97eb0bfbf07">
+<img width="900" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/9f6853ee-da71-4742-b7bb-d97eb0bfbf07">
 
 # Color Image Enhancement
 How to enhance color image
