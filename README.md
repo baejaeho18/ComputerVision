@@ -69,12 +69,13 @@ Spatial filters : spatial masks, kernels, templates, windows..
  <img width="300" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/f55c5d8a-cc1d-4e33-98d1-4acff194e97c">
 
 * sharpening : highlight transitions in intensity
-  - Second Derivative : f'' = f(x+1)+f(x-1)-2f(x)
-        Sum = Laplacian
-<img width="200" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/67714d10-96ce-41ba-b695-6534f32296c5">
+  - Second Derivative : f'' = f(x+1)+f(x-1)-2f(x) | Sum = Laplacian
+    
+    <img width="200" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/67714d10-96ce-41ba-b695-6534f32296c5">
 
   - Unsharp Masking
-<img width="300" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/09532796-2b7f-4daf-9e57-3d57f08b47fd">
+    
+    <img width="300" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/09532796-2b7f-4daf-9e57-3d57f08b47fd">
 
 * Median Filtering : replace the value with the median value of a mask (3x3 -> 5th largest)
   - remove noise without blurry but need more computation
@@ -85,7 +86,8 @@ Depending on the number of bins, contrast of an image adujsted.
  - Contranst : The difference in brig;htness or color that makes an object distinguishable
 
 CDF(Cumulative Distribution Function) : calculate the probability of pixel value
-<img width="900" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/9f6853ee-da71-4742-b7bb-d97eb0bfbf07">
+<img width="1170" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/853f8077-6b5b-4cec-8be9-7751c7f0ff1f">
+
 
 # Color Image Enhancement
 How to enhance color image
