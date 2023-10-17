@@ -130,7 +130,7 @@ Edge : a lot of intensity difference / Image smoothing for noise reduction shoul
   - double thresholding & connectivity analysis : determine whether is edge or not
 
 Line
-* Hough Transform
+* Hough Transform ?
   - obtain a binary edge image
   - specify subdivision in the plane
   - examine the ocunts of the accumulator cells for hight pixel concentrations
@@ -138,12 +138,16 @@ Line
 same as circle detection
 
 
-
 # Image Segmentation
-1 back / forward
-2 thresholding : how to defined threshoding is very important job
-- gobal : Basing, Ostant? : performance measurement : within-class variance / between-class variance
-- local : average adjacent pixel
+Process of partitioning a digital image into multiple region. 
+
+1 back / forward ?
+2 thresholding : how to defined proper threshoding (between background and object) is important
+* gobal : Basing, Ostant? : performance measurement : within-class variance / between-class variance
+  - Basic : repeat T=(m1+m2)/2 until the change is small enough
+  - Otsu : compute between-class variance which is maximized
+* local(adaptive) : set a threshold depending on the intensity distribution of adjacent pixel
+3 GrabCut ?
 
 # Video Segmentation (Background Subtraction)
 1 background
