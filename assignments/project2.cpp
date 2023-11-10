@@ -4,10 +4,12 @@
 using namespace std;
 using namespace cv;
 
+void lookROI(Mat frame, Rect left, Rect center, Rect right);
+
 void printLaneDepartureAlarm(Mat frame);
 void printMovingCarAlarm(Mat frame);
 
-int main() 
+int main()
 {
 	VideoCapture cap;
 	int key = '\0';
@@ -22,9 +24,9 @@ int main()
 	}
 	delay = 1000 / cap.get(CAP_PROP_FPS);
 	// Lane
-	Rect left(150, 200, 150, 300);
-	Rect center(300, 200, 150, 300);
-	Rect right(450, 200, 150, 300);
+	Rect left(150, 200, 150, 250);
+	Rect center(300, 200, 150, 250);
+	Rect right(450, 200, 150, 250);
 	Mat left_roi, center_roi, right_roi;
 	Mat left_canny, center_canny, right_canny;
 	Mat frame_copy;
@@ -56,7 +58,7 @@ int main()
 		Canny(right_canny, right_canny, 10, 70, 3);
 		HoughLines(left_canny, left_line, 1, (CV_PI / 180), 60, 0, 0, 30 * (CV_PI / 180), 60 * (CV_PI / 180));
 		HoughLines(right_canny, right_line, 1, (CV_PI / 180), 60, 0, 0, 30 * (CV_PI / 180), 60 * (CV_PI / 180));
-		
+
 		if (left_line.empty() && right_line.empty())
 		{
 			center_roi = frame_copy(center);
@@ -67,6 +69,8 @@ int main()
 			if (!center_line.empty())
 				printLaneDepartureAlarm(frame);
 		}
+
+		lookROI(frame, left, center, right);
 
 		// Car Moving
 
@@ -80,9 +84,16 @@ int main()
 
 void printLaneDepartureAlarm(Mat frame)
 {
-	putText(frame, format("Lane Departure!"), Point(frame.cols / 2, 40), FONT_HERSHEY_SIMPLEX, 1, Scalar(0, 255, 0), 2);
+	putText(frame, format("Lane Departure!"), Point(frame.cols / 2, 50), FONT_HERSHEY_SIMPLEX, 1, Scalar(0, 0, 255), 2);
 }
 void printMovingCarAlarm(Mat frame)
 {
-	putText(frame, format("Car is Moving!"), Point(frame.cols / 2, 160), FONT_HERSHEY_SIMPLEX, 1, Scalar(0, 244, 0), 2);
+	putText(frame, format("Car is Moving!"), Point(frame.cols / 2, 50), FONT_HERSHEY_SIMPLEX, 1, Scalar(0, 0, 255), 2);
+}
+
+void lookROI(Mat frame, Rect left, Rect center, Rect right)
+{
+	rectangle(frame, left, Scalar(0, 0, 122), 2);
+	rectangle(frame, center, Scalar(0, 0, 122), 2);
+	rectangle(frame, right, Scalar(0, 0, 122), 2);
 }
