@@ -5,6 +5,7 @@ using namespace std;
 using namespace cv;
 
 void lookROI(Mat frame, Rect left, Rect center, Rect right);
+void drawHoughLine(Mat frame, vector<Vec2f> line);
 
 void printLaneDepartureAlarm(Mat frame);
 void printMovingCarAlarm(Mat frame);
@@ -71,7 +72,8 @@ int main()
 		}
 
 		lookROI(frame, left, center, right);
-
+		drawHoughLine(frame, left_line);
+		drawHoughLine(frame, right_line);
 		// Car Moving
 
 
@@ -96,4 +98,19 @@ void lookROI(Mat frame, Rect left, Rect center, Rect right)
 	rectangle(frame, left, Scalar(0, 0, 122), 2);
 	rectangle(frame, center, Scalar(0, 0, 122), 2);
 	rectangle(frame, right, Scalar(0, 0, 122), 2);
+}
+void drawHoughLine(Mat frame, vector<Vec2f> lines)
+{
+	for (size_t i = 0; i < lines.size(); i++)
+	{
+		float rho = lines[i][0];
+		float theta = lines[i][1];
+		double a = cos(theta);
+		double b = sin(theta);
+		double x0 = a * rho;
+		double y0 = b * rho;
+		Point pt1(cvRound(x0 + 1000 * (-b)), cvRound(y0 + 1000 * (a)));
+		Point pt2(cvRound(x0 - 1000 * (-b)), cvRound(y0 - 1000 * (a)));
+		line(frame, pt1, pt2, Scalar(0, 255, 0), 3, 8, 0);
+	}
 }
