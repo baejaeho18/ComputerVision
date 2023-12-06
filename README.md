@@ -153,3 +153,22 @@ Process of partitioning a digital image into multiple region.
 1 background
 - GMM : p(B|A) and p(A|B) => p(X|background) and p(Background|X) : the form of ML
 2 How to subtract
+
+
+
+
+Feature => SIFT, IRB, corners
+- extraction : position of features		(FAST)
+- description : ready for feature matching	(BRIEF) >:0 <=:1 -> binary string?
+NNDR : best match > second best match?
+
+
+Detection & Tracking
+- Face Detecter : Harr-like feature
+traking=find good harr-like feature
+boosting : sequetially do it
+Stroing learneer : use samll amount of weak learner -> 
+
+
+
+
