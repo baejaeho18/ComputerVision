@@ -37,9 +37,9 @@ how computers can understand digital images or videos just like automate tasks t
 # Intensity Transformation
 <img width="300" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/3cf2a450-a6f0-4dad-81a0-74570b9b5203">
 
-Way to enhance the image, using:
+Way to enhance the image, using following functions:
 ## Mapping function
-* Negative Transformation : $input+output = max_intensity$
+* Negative Transformation : $input+output = max__intensity$
 * Log Transformation : $output = c*log(input+1) $
   - enhance contrast of dark region
 <img width="300" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/e8e399bc-4e6d-43a7-9933-f62b18a54c75">
