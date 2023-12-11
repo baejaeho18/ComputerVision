@@ -111,7 +111,7 @@ Intsity transformation, histogram equalization, spatial filtering are applied on
 * Color Conversion : CV_BGR2HSV, CV_BGR2GRAY
 
   It means, converting color space into HSI or YUV from RGB is useful. 
-*  Pseudo Coloring : gray image to color image
+* Pseudo Coloring : gray image to color image
 * Color Slicing : Find the pixels in the range of the desired color in the Hue-channel. Set all the other pixels to 0 in the Saturation-channel (grayscale image)
 * White balancing : global adjustment of the intensities of the colors
   - Gray World Assumption : the average of all the colors is a neutral gray : $result = original*(128/average)$
@@ -120,7 +120,7 @@ Intsity transformation, histogram equalization, spatial filtering are applied on
 Edge : a lot of intensity difference / Image smoothing for noise reduction should be performed(like, mediean/average filtering)
 * Sobel Mask
 
-  <img width="200" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/9c28f1db-d32c-40fe-9548-f12d59c4e4bb">
+  <img width="200" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/9c28f1db-d32c-40fe-9548-f12d59c4e4bb"> <br>
 
   <img width="200" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/6e60cece-c8d0-4edf-911f-96bfc30e1088">
 
