@@ -39,7 +39,7 @@ how computers can understand digital images or videos just like automate tasks t
 Way to enhance the image, using following functions:
 
 ## Mapping function
-* Negative Transformation : $input+output = max__intensity$
+* Negative Transformation : $input+output = max_intensity$
 * Log Transformation : $output = c*log(input+1) $
   - enhance contrast of dark region
 <img width="300" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/e8e399bc-4e6d-43a7-9933-f62b18a54c75">
