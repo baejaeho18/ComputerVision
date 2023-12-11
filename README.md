@@ -35,9 +35,9 @@ how computers can understand digital images or videos just like automate tasks t
   - FPS가 클수록, interval이 낮을 수록 자연스러움
 
 # Intensity Transformation
-<img width="300" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/3cf2a450-a6f0-4dad-81a0-74570b9b5203">
-
+<img width="300" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/3cf2a450-a6f0-4dad-81a0-74570b9b5203"> <br>
 Way to enhance the image, using following functions:
+
 ## Mapping function
 * Negative Transformation : $input+output = max__intensity$
 * Log Transformation : $output = c*log(input+1) $
