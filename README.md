@@ -19,7 +19,7 @@ how computers can understand digital images or videos just like automate tasks t
 
 ## 1.2 Basics of Digital Image/Video
 * Pixel : smallest unit of Image (1~4 values)
-<img width="400" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/918bcc11-6319-4bef-bbc0-1c8eede4d0a4">
+<img width="200" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/918bcc11-6319-4bef-bbc0-1c8eede4d0a4">
 
 * Intensity Level : 각각의 pixel이 가질 수 있는 표현의 개수. 2의 지수승으로 존재
   - Normally, 256( $2^8$ )
