@@ -156,7 +156,23 @@ Process of partitioning a digital image into multiple region.
 2 How to subtract
 
 
+# 7. Background Substraction
 
+## Morphological Operation
+
+
+# 9. Image Feature Matching
+
+# 10. Detection Tracking
+
+
+# 11. Object Detection using Deep Learning
+
+# 12. Projective Transformation
+
+# 13. Understanding of a Camera
+
+# 14. Image Compression
 
 Feature => SIFT, IRB, corners
 - extraction : position of features		(FAST)
