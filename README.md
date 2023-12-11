@@ -1,4 +1,4 @@
-# ComputerVision
+# 0. ComputerVision
 how computers can understand digital images or videos just like automate tasks that human vision system can do [[blog]](https://hu-coding.tistory.com/category/Computer%20Vision)
 
 * Preprocessing : 이미지 크기 조정, 색상 보정, 노이즈 제거 등
@@ -7,8 +7,8 @@ how computers can understand digital images or videos just like automate tasks t
 * Object Detection/Tracking : 특정 객체를 식별하고 추적
 * Image Transformation
 
-# Background
-## History
+# 1. Background
+## 1.1 History
 <img src='https://global-uploads.webflow.com/6434d6a6071644318551fd72/64cc7f679407b4fff427ed6e_03%20what%20is%20computer%20vision_datahunt.webp'>
 
 * 1960s : Perceptron 개념을 기반으로 Image Pattern Recognize 연구가 시작됨. 픽셀 수준의 처리와 패턴 인식에 초점이 맞춰짐 [[survey]](https://books.googleusercontent.com/books/content?req=AKW5QafDdn36GTbbsElGv88bx2_x63DgAIxC7rP_90r72jmzggw9jXRm7yNIbfJWs-XpKUTaaKIYGfjhB1H4jwlsq5R8VXxY6sjTZEz_CX_E71wt-PPLnBL8u2_YdLa8FjV4GoRExUdOmj4-xTi1rrqRpZtDx6llsr7nyy2hPnAaOe3baCBGAzNQaP6ZTO5EO5a1_19fztVXLeWZ3nAqy13Ibwm8BnO5FtRjHD1f9wo8xMJJCReB5bSDVwzdT7-RI1hFN_SLKVYeBRNLujKSRPX5a6BZOPS47fZVv3pQ9IgQYw05fxmnZAQ)
@@ -17,7 +17,7 @@ how computers can understand digital images or videos just like automate tasks t
 * 2000s : 딥러닝과 신경망 알고리즘의 등장으로 모델의 성능이 획기적으로 향상되며, 얼굴인식 및 객체 분류 등 다양한 응용 사례가 등장함
 실시간 처리 능력을 강조한 Model-centric 개발이 우선되었으나, 최근에는 실시간성뿐만 아니라 학습 데이터 품질 향상을 통한 정확성 증진도 활발히 연구되고 있음. 또한, 기존의 CNN[[video]](https://www.youtube.com/watch?v=ixF5WNpTzCA)뿐만 아니라, 전체 시퀀스의 정보를 한번에 처리할 수 있는 "Attention Mechanism"이 도입된 Transformers가 주목받고 있음.
 
-## Basics of Digital Image/Video
+## 1.2 Basics of Digital Image/Video
 * Pixel : smallest unit of Image (1~4 values)
 <img width="400" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/918bcc11-6319-4bef-bbc0-1c8eede4d0a4">
 
@@ -34,11 +34,11 @@ how computers can understand digital images or videos just like automate tasks t
   - the interval is normally 33ms (*30fps=1000ms=1s)
   - FPS가 클수록, interval이 낮을 수록 자연스러움
 
-# Intensity Transformation
+# 2. Intensity Transformation
 <img width="300" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/3cf2a450-a6f0-4dad-81a0-74570b9b5203"> <br>
 Way to enhance the image, using following functions:
 
-## Mapping function
+## 2.1 Mapping function
 * Negative Transformation :  $input+output = max_intensity$
 * Log Transformation : $output = c*log(input+1) $
   - enhance contrast of dark region
@@ -54,8 +54,8 @@ Way to enhance the image, using following functions:
   - Thresholding is also possible
 <img width="150" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/058eafc7-f6d3-46ba-b9c8-effee883f3a9">
 
-## Filtering
-### Spatial Filtering
+## 2.2 Filtering
+### 2.2.1Spatial Filtering
 Spatial filters : spatial masks, kernels, templates, windows..
 
 1) Define the kernel size (3,3), (5,5), ...
@@ -81,16 +81,16 @@ Spatial filters : spatial masks, kernels, templates, windows..
   - remove noise without blurry but need more computation
   - effective at impulse(sale-and-pepper noise)
 
-### Histogram Equalizationi
+### 2.2.2 Histogram Equalizationi
 Depending on the number of bins, contrast of an image adujsted.
  - Contranst : The difference in brig;htness or color that makes an object distinguishable
 
 CDF(Cumulative Distribution Function) : calculate the probability of pixel value
 <img width="1170" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/853f8077-6b5b-4cec-8be9-7751c7f0ff1f">
 
-# Color Image Enhancement
+# 3. Color Image Enhancement
 How to enhance color image
-## Color Model
+## 3.1 Color Model
 * RGB
   
   <img width="300" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/0e74e179-2f7b-4534-ab30-f561a7544045">
@@ -106,7 +106,7 @@ How to enhance color image
 - Grayscale image : lightness is the only parameter of a pixel that can vary
 - Achromatic Color : gray, black, white
 
-## Color Processing
+## 3.2 Color Processing
 Intsity transformation, histogram equalization, spatial filtering are applied on the intensity channel only!
 * Color Conversion : CV_BGR2HSV, CV_BGR2GRAY
 
@@ -116,7 +116,7 @@ Intsity transformation, histogram equalization, spatial filtering are applied on
 * White balancing : global adjustment of the intensities of the colors
   - Gray World Assumption : the average of all the colors is a neutral gray : $result = original*(128/average)$
 
-# Edge/Line Detection
+# 4. Edge/Line Detection
 Edge : a lot of intensity difference / Image smoothing for noise reduction should be performed(like, mediean/average filtering)
 * Sobel Mask
   <img width="200" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/9c28f1db-d32c-40fe-9548-f12d59c4e4bb">
@@ -138,7 +138,7 @@ Line
 same as circle detection
 
 
-# Image Segmentation
+# 5. Image Segmentation
 Process of partitioning a digital image into multiple region. 
 
 1 back / forward ?
@@ -149,7 +149,7 @@ Process of partitioning a digital image into multiple region.
 * local(adaptive) : set a threshold depending on the intensity distribution of adjacent pixel
 3 GrabCut ?
 
-# Video Segmentation (Background Subtraction)
+# 6. Video Segmentation (Background Subtraction)
 1 background
 - GMM : p(B|A) and p(A|B) => p(X|background) and p(Background|X) : the form of ML
 2 How to subtract
