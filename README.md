@@ -119,6 +119,7 @@ Intsity transformation, histogram equalization, spatial filtering are applied on
 # 4. Edge/Line Detection
 Edge : a lot of intensity difference / Image smoothing for noise reduction should be performed(like, mediean/average filtering)
 * Sobel Mask
+
   <img width="200" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/9c28f1db-d32c-40fe-9548-f12d59c4e4bb">
 
   <img width="200" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/6e60cece-c8d0-4edf-911f-96bfc30e1088">
