@@ -161,9 +161,15 @@ Process of partitioning a digital image into multiple region.
 - Dilation -> Closing : fueses narrow breaks and long thin gulfs and eliminates small holes
 
 # 9. Image Feature Matching
-Image Feature : piece of information that is relevant for solving the computational task such as specific structures(points, edges, objects), result of general neighborhood operation or feature detection applied image. <br>
+Image Feature : piece of information that is relevant for solving the computational task such as specific structures(points, edges, objects) <br>
 Good feature = inexpensive and memory efficient
 * ORB : oFast detector + r-BRIEF descriptor
+  - Fast : Determines the corner by having more than N consecutive pixels whose intestities are higher or lowe
+
+  ![image](https://github.com/baejaeho18/ComputerVision/assets/37645490/0fc95bff-7e8a-4a6f-84ab-2c8de55298cc)
+
+  - BRIEF : A bit string descriptor of an image patch constructed from a set of binary intensity tests
+* NNDR(Nearest neighbor distance ratio) $= frac{distance to best match}{distance to second best match}$
 
 ## CNN
 
@@ -171,6 +177,7 @@ Good feature = inexpensive and memory efficient
 - Convolution
 - Relu
 - Pooling
+![image](https://github.com/baejaeho18/ComputerVision/assets/37645490/574ab8be-0075-452a-a67a-ba637e33159e)
 
 # 10. Detection Tracking
 
