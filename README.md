@@ -169,7 +169,7 @@ Image Feature : piece of information that is relevant for solving the computatio
 
   - BRIEF : A bit string descriptor of an image patch constructed from a set of binary intensity tests
 * Good feature = inexpensive and memory efficient
-  - NNDR(Nearest neighbor distance ratio) $= frac{distance to best match}{distance to second best match}$
+  - NNDR(Nearest neighbor distance ratio) $= (frac{distance to best match}{distance to second best match})$
 
 ## CNN
 
