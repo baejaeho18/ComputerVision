@@ -39,7 +39,7 @@ how computers can understand digital images or videos just like automate tasks t
 Way to enhance the image, using following functions:
 
 ## 2.1 Mapping function
-* Negative Transformation :  $input+output = max_intensity$
+* Negative Transformation :  $input+output = max intensity$
 * Log Transformation : $output = c*log(input+1) $
   - enhance contrast of dark region
 <img width="300" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/e8e399bc-4e6d-43a7-9933-f62b18a54c75">
@@ -55,12 +55,12 @@ Way to enhance the image, using following functions:
 <img width="150" alt="image" src="https://github.com/baejaeho18/ComputerVision/assets/37645490/058eafc7-f6d3-46ba-b9c8-effee883f3a9">
 
 ## 2.2 Filtering
-### 2.2.1Spatial Filtering
+### 2.2.1 Spatial Filtering
 Spatial filters : spatial masks, kernels, templates, windows..
 
 1) Define the kernel size (3,3), (5,5), ...
 2) Scan with masking
-* Average Filtering : replace the value of the pixel by the average of the intensity elvels in the neighborhood
+* Average Filtering : replace the value of the pixel by the average of the intensity levels in the neighborhood
   - reduce random noises
   - blur image
 * Gausian Filtering : set weight to neighborhood
