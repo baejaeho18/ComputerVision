@@ -110,7 +110,7 @@ How to enhance color image
 Intsity transformation, histogram equalization, spatial filtering are applied on the intensity channel only!
 * Color Conversion : CV_BGR2HSV, CV_BGR2GRAY
 
-  It means, converting color space into HSI or YUV from RGB is useful. 
+It means, converting color space into HSI or YUV from RGB is useful. 
 * Pseudo Coloring : gray image to color image
 * Color Slicing : Find the pixels in the range of the desired color in the Hue-channel. Set all the other pixels to 0 in the Saturation-channel (grayscale image)
 * White balancing : global adjustment of the intensities of the colors
@@ -154,14 +154,23 @@ Process of partitioning a digital image into multiple region.
 1 background
 - GMM : p(B|A) and p(A|B) => p(X|background) and p(Background|X) : the form of ML
 2 How to subtract
-
-
-# 7. Background Substraction
+- 
 
 ## Morphological Operation
-
+- Erosion -> Opening : breaks narrow isthmuses and eliminates small island and sharp peaks
+- Dilation -> Closing : fueses narrow breaks and long thin gulfs and eliminates small holes
 
 # 9. Image Feature Matching
+Image Feature : piece of information that is relevant for solving the computational task such as specific structures(points, edges, objects), result of general neighborhood operation or feature detection applied image. <br>
+Good feature = inexpensive and memory efficient
+* ORB : oFast detector + r-BRIEF descriptor
+
+## CNN
+
+![image](https://github.com/baejaeho18/ComputerVision/assets/37645490/9cba7d9c-66f9-426f-a7d8-6b53fc66a68c)
+- Convolution
+- Relu
+- Pooling
 
 # 10. Detection Tracking
 
