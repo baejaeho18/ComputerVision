@@ -183,8 +183,13 @@ Image Feature : piece of information that is relevant for solving the computatio
 
 
 # 11. Object Detection using Deep Learning
+YOLO
 
 # 12. Projective Transformation
+After transformation, parallel lines should still parallel <br>
+Similarity < Affine < Projective <br>
+* Homo graphy(projective/perspective transormation)
+* 
 
 # 13. Understanding of a Camera
 
