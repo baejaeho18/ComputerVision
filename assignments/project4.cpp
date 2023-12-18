@@ -50,6 +50,7 @@ Mat warpAndStitch(const Mat& image1, const Mat& image2, const Mat& H) {
     image1.copyTo(half);
     return result;
 }
+
 Mat stitchTwoImages(const Mat& panorama, const Mat& image, const Mat& H) {
     // 이미지 변환 시 결과 이미지의 크기를 계산
     vector<Point2f> corners(4);
@@ -110,7 +111,9 @@ Mat stitchTwoImages(const Mat& panorama, const Mat& image, const Mat& H) {
 
     return result;
 }
-int main() {
+
+int main() 
+{
     vector<string> filenames = { "pano1.jpg", "pano2.jpg", "pano3.jpg", "pano4.jpg" };
     vector<Mat> images;
     vector<vector<KeyPoint>> keypoints_list;
