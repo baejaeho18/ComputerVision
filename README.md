@@ -15,7 +15,7 @@ how computers can understand digital images or videos just like automate tasks t
 * 1970~1980s : edge detection, histogram equalization과 같은 이미지 처리 알고리즘의 이론적 토대와 기술적 발전이 이루어짐
 * 1990s : 복잡하고 정교한 알고리즘과 방법론이 도입됨. Object Detection/Tracking, Segmentation 기술이 등장함
 * 2000s : 딥러닝과 신경망 알고리즘의 등장으로 모델의 성능이 획기적으로 향상되며, 얼굴인식 및 객체 분류 등 다양한 응용 사례가 등장함
-실시간 처리 능력을 강조한 Model-centric 개발이 우선되었으나, 최근에는 실시간성뿐만 아니라 학습 데이터 품질 향상을 통한 정확성 증진도 활발히 연구되고 있음. 또한, 기존의 CNN[[video]](https://www.youtube.com/watch?v=ixF5WNpTzCA)뿐만 아니라, 전체 시퀀스의 정보를 한번에 처리할 수 있는 "Attention Mechanism"이 도입된 Transformers가 주목받고 있음.
+실시간 처리 능력을 강조한 Model-centric 개발이 우선되었으나, 최근에는 실시간성뿐만 아니라 학습 데이터 품질 향상을 통한 정확성 증진도 활발히 연구되고 있음. 또한, 기존의 CNN [[video]](https://www.youtube.com/watch?v=ixF5WNpTzCA)뿐만 아니라, 전체 시퀀스의 정보를 한번에 처리할 수 있는 "Attention Mechanism"이 도입된 Transformers가 주목받고 있음.
 
 ## 1.2 Basics of Digital Image/Video
 * Pixel : smallest unit of Image (1~4 values)
